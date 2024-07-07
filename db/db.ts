@@ -1,9 +1,7 @@
 import Database from 'better-sqlite3';
-import { join } from 'path';
-import { tmpdir } from 'os';
 
-const dbPath = join(tmpdir(), 'database.db');
-const db = new Database(dbPath, { verbose: console.log });
+// Usar ':memory:' para una base de datos en memoria
+const db = new Database(':memory:', { verbose: console.log });
 
 // Crear tabla Employee si no existe
 const createEmployeeTable = db.prepare(`
