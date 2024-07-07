@@ -1,9 +1,9 @@
+// lib/db.ts
 import Database from 'better-sqlite3';
 
-// Usar ':memory:' para una base de datos en memoria
-const db = new Database(':memory:', { verbose: console.log });
+const db = new Database('database.db', { verbose: console.log });
 
-// Crear tabla Employee si no existe
+// Crear tabla Employee si no existea
 const createEmployeeTable = db.prepare(`
   CREATE TABLE IF NOT EXISTS Employee (
     id TEXT PRIMARY KEY,
