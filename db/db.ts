@@ -1,7 +1,9 @@
-// lib/db.ts
 import Database from 'better-sqlite3';
+import { join } from 'path';
+import { tmpdir } from 'os';
 
-const db = new Database('database.db', { verbose: console.log });
+const dbPath = join(tmpdir(), 'database.db');
+const db = new Database(dbPath, { verbose: console.log });
 
 // Crear tabla Employee si no existe
 const createEmployeeTable = db.prepare(`
